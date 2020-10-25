@@ -16,7 +16,7 @@ function App() {
 
   // TODO: Maybe check local Storage for inital Load
   let favouriteCities = JSON.parse(
-    localStorage.getItem("favoriteCities") || "[]"
+    localStorage.getItem("favoriteCities") || `["Cologne"]`
   );
 
   const headerTitle = createElement("h1", {
