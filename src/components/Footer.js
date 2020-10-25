@@ -11,7 +11,7 @@ export const createFooter = () => {
   const randomSeed = generateRandomSeed(7);
   const footerImg = createElement("img", {
     className: "footer__img",
-    src: `https://robohash.org/humansKillRobos_${randomSeed}.svg?set=set5`,
+    src: `https://robohash.org/humans4tw-${randomSeed}.svg?set=set5`,
   });
   const humanLabel = createElement("label", {
     className: "humanLabel",
