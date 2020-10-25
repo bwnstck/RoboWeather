@@ -1,6 +1,6 @@
 import "./watch.css";
 
-export async function showTime(clockContainer, ampm = false) {
+export async function showTime(clockContainer, ampm) {
   const time = new Date();
   let hour = time.getHours();
   let min = time.getMinutes();

@@ -12,9 +12,8 @@ import { generateYourFavs } from "./components/YourFavs";
 
 function App() {
   let loading = false;
-  let ampm = false;
+  let ampm = JSON.parse(localStorage.getItem("ampm") || false);
 
-  // TODO: Maybe check local Storage for inital Load
   let favouriteCities = JSON.parse(
     localStorage.getItem("favoriteCities") || `["Cologne"]`
   );
@@ -30,6 +29,7 @@ function App() {
       event.preventDefault;
       console.log("Click");
       ampm = !ampm;
+      localStorage.setItem("ampm", JSON.stringify(ampm));
     },
   });
   let IntervId = null;

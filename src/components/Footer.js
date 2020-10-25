@@ -1,17 +1,32 @@
 import "./footer.css";
 import { createElement } from "../utils/elements";
 import { generateRandomSeed } from "../utils/helpers";
+
 export const createFooter = () => {
+  const randomSeed = generateRandomSeed(7);
+
   const humanCheckbox = createElement("input", {
     className: "humanCheckbox",
     type: "checkbox",
     id: "humanCheck",
   });
 
-  const randomSeed = generateRandomSeed(7);
+  let footerSrc = localStorage.getItem("FooterSrc") || "";
+
+  if (footerSrc === "") {
+    let randomSeed = generateRandomSeed(5);
+    footerSrc = `https://robohash.org/you-${randomSeed}.svg?set=set5`;
+    localStorage.setItem("FooterSrc", footerSrc);
+    console.log("SET to localstorage");
+  } else {
+    let dataSrc = localStorage.getItem("FooterSrc");
+    footerSrc = dataSrc;
+    console.log("GET from localstorage");
+  }
+
   const footerImg = createElement("img", {
     className: "footer__img",
-    src: `https://robohash.org/humans4tw-${randomSeed}.svg?set=set5`,
+    src: footerSrc,
   });
   const humanLabel = createElement("label", {
     className: "humanLabel",
