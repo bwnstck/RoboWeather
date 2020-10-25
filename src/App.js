@@ -7,6 +7,7 @@ import { GetRandomQuote } from "./utils/api";
 import { showTime } from "./components/Watch";
 import { addRemoveLoading } from "./utils/helpers";
 import { createFavCity } from "./components/FavButtons";
+import { createFooter } from "./components/Footer";
 
 function App() {
   let loading = false;
@@ -66,63 +67,6 @@ function App() {
     className: "outputContainer",
   });
 
-  // const favCityOne = createFavCity("🌞 ", "Abidjan", " 🇨🇮", {
-  //   onclick: async (event) => {
-  //     event.preventDefault();
-  //     let loading = true;
-  //     addRemoveLoading(loading);
-  //     const weatherObj = await SearchWeather("Abidjan");
-  //     const randomQuote = await GetRandomQuote();
-  //     await createWeatherOutput(
-  //       weatherObj,
-  //       output,
-  //       randomQuote,
-  //       favouriteCities
-  //     );
-  //     loading = false;
-  //     addRemoveLoading(loading);
-  //   },
-  // });
-  // const favCityTwo = createFavCity("🏔 ", "Anchorage", " 🇺🇸", {
-  //   onclick: async (event) => {
-  //     event.preventDefault();
-  //     let loading = true;
-  //     addRemoveLoading(loading);
-  //     const weatherObj = await SearchWeather("Anchorage");
-  //     const randomQuote = await GetRandomQuote();
-  //     await createWeatherOutput(
-  //       weatherObj,
-  //       output,
-  //       randomQuote,
-  //       favouriteCities
-  //     );
-  //     loading = false;
-  //     addRemoveLoading(loading);
-  //   },
-  // });
-  // const favCityThree = createFavCity("☔️ ", "The Hague", " 🇳🇱", {
-  //   onclick: async (event) => {
-  //     event.preventDefault();
-  //     let loading = true;
-  //     addRemoveLoading(loading);
-  //     const weatherObj = await SearchWeather("The Hague");
-  //     const randomQuote = await GetRandomQuote();
-  //     await createWeatherOutput(
-  //       weatherObj,
-  //       output,
-  //       randomQuote,
-  //       favouriteCities
-  //     );
-  //     loading = false;
-  //     addRemoveLoading(loading);
-  //   },
-  // });
-
-  // const favCities = createElement("div", {
-  //   className: "favCities",
-  //   children: [favCityOne, favCityTwo, favCityThree],
-  // });
-
   const robosHeader = createElement("h6", {
     className: "robosHeader",
     innerText: "Robos Favourite Cities:",
@@ -153,9 +97,11 @@ function App() {
     children: [headerTitle, clock, subHeading, form, robosHeader, favCitiesBox],
   });
 
+  const footer = createFooter();
+
   const container = createElement("div", {
     className: "container",
-    children: [header, output],
+    children: [header, output, footer],
   });
 
   return container;
