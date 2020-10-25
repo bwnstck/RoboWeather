@@ -5,7 +5,7 @@ import { SearchWeather } from "./utils/api";
 import createWeatherOutput from "./components/WeatherOutput";
 import { GetRandomQuote } from "./utils/api";
 import { showTime } from "./components/Watch";
-import { addRemoveLoading } from "./utils/helpers";
+import { addRemoveLoading, setNewProfilePicture } from "./utils/helpers";
 import { createFavCity } from "./components/FavButtons";
 import { createFooter } from "./components/Footer";
 import { generateYourFavs } from "./components/YourFavs";
@@ -96,9 +96,28 @@ function App() {
     },
   });
 
+  let imgSrc = localStorage.getItem("imgSrc") || "";
+
+  if (imgSrc === "") {
+    imgSrc = setNewProfilePicture();
+  } else {
+    let dataSrc = localStorage.getItem("imgSrc");
+    imgSrc = dataSrc;
+    console.log("GET from localstorage");
+  }
+
+  const profilePic = createElement("img", {
+    className: "profilePicture",
+    src: imgSrc,
+
+    onclick: () => {
+      userImg.src = setNewProfilePicture();
+    },
+  });
+
   const header = createElement("div", {
     className: "headerContainer",
-    children: [headerTitle, clock, subHeading, form, favCitiesBox],
+    children: [headerTitle, clock, profilePic, subHeading, form, favCitiesBox],
   });
 
   const footer = createFooter();

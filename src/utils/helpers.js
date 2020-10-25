@@ -60,3 +60,11 @@ export function getBase64Image(img) {
 
   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
+
+export function setNewProfilePicture() {
+  let randomSeed = generateRandomSeed(5);
+  imgSrc = `https://robohash.org/you-${randomSeed}.svg?set=set5`;
+  localStorage.setItem("imgSrc", imgSrc);
+  console.log("SET to localstorage");
+  return imgSrc;
+}
