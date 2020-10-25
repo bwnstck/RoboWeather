@@ -41,10 +41,11 @@ h6 {
 }
 /* Page Title & Subtext */
 .header__title {
+  font-size: clamp(1rem, 8vw, 2rem);
   color: white;
 }
 .header__sub {
-  font-size: 1.3rem;
+  font-size: clamp(0.3rem, 5vw, 1.1rem);
   color: limegreen;
   width: 60%;
   margin: 1.5rem auto 0 auto;
@@ -52,6 +53,7 @@ h6 {
 
 /* Robos Favourite Cities */
 .robosHeader {
+  font-size: clamp(0.1rem, 4vw, 0.6rem);
   margin-top: 1rem;
   margin-bottom: 0;
   color: white;
