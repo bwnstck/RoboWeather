@@ -111,7 +111,7 @@ function App() {
     src: imgSrc,
 
     onclick: () => {
-      userImg.src = setNewProfilePicture();
+      profilePic.src = setNewProfilePicture();
     },
   });
 

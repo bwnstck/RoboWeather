@@ -43,8 +43,6 @@ export function generateRandomSeed(length) {
       Math.floor(Math.random() * charactersLength)
     );
   }
-
-  console.log(randomSeed);
   return randomSeed;
 }
 
@@ -63,7 +61,7 @@ export function getBase64Image(img) {
 
 export function setNewProfilePicture() {
   let randomSeed = generateRandomSeed(5);
-  imgSrc = `https://robohash.org/you-${randomSeed}.svg?set=set5`;
+  let imgSrc = `https://robohash.org/you-${randomSeed}.svg?set=set5`;
   localStorage.setItem("imgSrc", imgSrc);
   console.log("SET to localstorage");
   return imgSrc;
