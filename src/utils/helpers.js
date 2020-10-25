@@ -1,18 +1,11 @@
 import { createElement } from "./elements";
-import loadingGif from "../assets/loading-robot.gif";
+// import loadingGif from "../assets/loading-robot.gif";
+
 export function removeAllChildNodes(parent) {
-  console.log("removed: ", parent.firstChild);
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
-
-// const loadingImg = createElement("img", {
-//   className: "loadingImg",
-//   // src: `https://media1.tenor.com/images/e8252f2679f8c77bcc2732fbacf0eeec/tenor.gif?itemid=5295987`,
-//   src: loadingGif,
-//   alt: "Bean Eater",
-// });
 
 const loadingImg = createElement("div", {
   className: "lds-ripple",
