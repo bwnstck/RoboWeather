@@ -1,29 +1,19 @@
 .card-image {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 .card {
   width: 300px;
   position: relative;
-  border-radius: 15%;
-  margin-left: -50px;
-  /* height: 280px; */
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  margin-left: 20px;
   background: black;
   color: limegreen;
 }
 
 .card::before {
-  /* content: "";
-  position: absolute;
-  top: 145px;
-  left: -25px;
-  width: 60px;
-  height: 60px;
-  background: white;
-  transform: skew(47deg, 120deg) rotate(90deg);
-  border-radius: 0px;
-  border: 1px solid; */
   content: "";
   position: absolute;
   left: 0;
@@ -37,17 +27,43 @@
   margin-top: -1.562em;
   margin-left: -3.125em;
 }
+@media only screen and (max-width: 600px) {
+  .card::before {
+    top: 106%;
+    left: 50%;
+    border: 2.656em solid transparent;
+    border-top-color: black;
+    margin-left: -1.656em;
+    margin-bottom: -1.656em;
+  }
+  .card {
+    margin-left: 0;
+  }
+}
 
 .card-text {
   font-size: 2rem;
 }
-.locationName {
-  font-size: 1.5rem;
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
+
+.fa-star {
+  color: gold;
+  font-size: 2rem;
+}
+
 .card-randomQuote {
-  behavior: "scroll";
-  direction: "left";
-  width: 100%;
   display: block;
-  margin: 0.5rem;
+  margin: 0.5rem auto;
+}
+
+.roboFace {
+  max-width: 230px;
+  max-height: 230px;
+  width: auto;
+  height: auto;
 }

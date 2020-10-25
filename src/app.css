@@ -16,6 +16,10 @@ body {
   background: rgb(75, 74, 74);
 }
 
+button {
+  font-family: "Turret Road", cursive;
+  font-weight: 700;
+}
 h1,
 h2,
 h3,
@@ -38,32 +42,37 @@ h6 {
   color: white;
 }
 .header__sub {
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   color: limegreen;
-  width: 40%;
-  margin: 0.5em auto;
-  /* font-size: 1rem;s */
+  width: 60%;
+  margin: 1.5rem auto 0 auto;
 }
 
 /* Robos Favourite Cities */
 .robosHeader {
   margin-top: 1rem;
+  margin-bottom: 0;
   color: white;
 }
 
-.favCities {
-  width: 60%;
-  margin: 1rem auto;
+.favCities,
+.favCitiesBox {
   display: flex;
   justify-content: space-evenly;
+  flex-flow: wrap;
+  width: 60%;
+  margin: 1rem auto;
 }
 
 .favCity {
-  background: black;
-  color: limegreen;
-  padding: 0.5rem 0.8rem;
+  background: gold;
+  height: 30px;
+  color: black;
+  padding: auto 0.5rem;
 }
-
+.favCities > :last-child {
+  margin-top: 0.5rem;
+}
 .favCity:hover {
   border: 2px solid limegreen;
   color: limegreen;
@@ -86,15 +95,45 @@ h6 {
 .outputContainer {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  align-items: flex-end;
+  margin-top: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .outputContainer {
+    flex-flow: column-reverse;
+    align-items: center;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 1.656em solid transparent;
+    border-top-color: black;
+    border-bottom: 0;
+    margin-left: -1.656em;
+    margin-bottom: -1.656em;
+  }
 }
 
 .clock {
   width: 150px;
+  height: 28px;
   margin: auto;
   background-color: black;
   color: limegreen;
   border: 2px solid limegreen;
+  line-height: 23px;
+}
+
+.loadingContainer {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loadingImg {
@@ -102,4 +141,11 @@ h6 {
   height: 200px;
   border-radius: 20px;
   transition: 1s ease-in-out;
+}
+
+.loadingText {
+  color: limegreen;
+  width: 60%;
+  max-width: 500px;
+  margin: 1rem auto;
 }
