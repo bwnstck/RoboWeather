@@ -40,6 +40,7 @@ export default function createWeatherOutput(
       console.log("itsme");
       let starIcon = favOrNot ? "fas" : "far";
       let favCitiesBox = document.querySelector(".favCitiesBox");
+
       favCityIcon.className = `${starIcon} fa-star`;
       if (favOrNot) {
         favouriteCities.push(cityName);
