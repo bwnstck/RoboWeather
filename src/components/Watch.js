@@ -1,15 +1,17 @@
-export function showTime() {
-  let time = new Date();
+import "./watch.css";
+
+export async function showTime(clockContainer, ampm = false) {
+  const time = new Date();
   let hour = time.getHours();
   let min = time.getMinutes();
   let sec = time.getSeconds();
-  let am_pm = "AM";
+  let am_pm = "";
 
-  if (hour > 12) {
+  if (ampm && hour > 12) {
     hour -= 12;
     am_pm = " PM";
   }
-  if (hour == 0) {
+  if (ampm && hour == 0) {
     hour = 12;
     am_pm = " AM";
   }
@@ -17,6 +19,8 @@ export function showTime() {
   min = min < 10 ? "0" + min : min;
   sec = sec < 10 ? "0" + sec : sec;
 
-  let currentTime = hour + " : " + min + " : " + sec + am_pm;
-  document.querySelector(".clock").innerHTML = currentTime;
+  let currentTime = ` ${hour} : ${min}: ${sec} ${ampm ? "<br>" : ""}${
+    ampm ? am_pm : ""
+  } `;
+  clockContainer.innerHTML = currentTime;
 }

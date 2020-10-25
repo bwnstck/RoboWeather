@@ -12,6 +12,7 @@ import { generateYourFavs } from "./components/YourFavs";
 
 function App() {
   let loading = false;
+  let ampm = false;
 
   // TODO: Maybe check local Storage for inital Load
   let favouriteCities = JSON.parse(
@@ -25,12 +26,18 @@ function App() {
   const clock = createElement("div", {
     className: "clock",
     innerHTML: "",
+    onclick: (event) => {
+      event.preventDefault;
+      console.log("Click");
+      ampm = !ampm;
+    },
   });
   let IntervId = null;
 
-  (function startClock() {
-    IntervId = setInterval(showTime, 1000);
-  })();
+  function initalShowTime() {
+    showTime(clock, ampm);
+  }
+  (() => (IntervId = setInterval(initalShowTime, 1000)))();
 
   const favCitiesBox = createElement("div", {
     className: "favCitiesBox",
