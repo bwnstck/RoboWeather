@@ -99,3 +99,11 @@
   outline: none;
   border: 2px solid limegreen;
 }
+
+.profilePicture {
+  height: 25px;
+}
+
+.headerBody {
+  min-height: 55px;
+}
