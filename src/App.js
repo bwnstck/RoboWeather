@@ -12,6 +12,8 @@ import { createFavCity } from "./components/FavButtons";
 import { createFooter } from "./components/Footer";
 import { generateYourFavs } from "./components/YourFavs";
 
+import dancingRoboImg from "./assets/dancingRobo.gif";
+
 function App() {
   let loading = false;
   let ampm = JSON.parse(localStorage.getItem("ampm") || false);
@@ -74,6 +76,23 @@ function App() {
     innerHTML:
       "Maybe you'll get your weather, ...<br> ...if the robots are not killing humans.",
   });
+
+  const dancingRobos = createElement("div", {
+    className: "dancingRobos",
+    children: [],
+  });
+
+  (function createRobot(count = 4) {
+    for (let i = 0; i < count; i++) {
+      const dancingRobo = createElement("img", {
+        className: "dancingRobo",
+        src: dancingRoboImg,
+        alt: `dancing Robo ${i + 1}`,
+      });
+      dancingRobos.append(dancingRobo);
+    }
+  })();
+
   const output = createElement("div", {
     className: "outputContainer",
   });
@@ -119,7 +138,15 @@ function App() {
 
   const header = createElement("div", {
     className: "headerContainer",
-    children: [headerTitle, clock, profilePic, subHeading, form, favCitiesBox],
+    children: [
+      headerTitle,
+      clock,
+      profilePic,
+      subHeading,
+      dancingRobos,
+      form,
+      favCitiesBox,
+    ],
   });
 
   const footer = createFooter();

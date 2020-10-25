@@ -55,9 +55,10 @@ h6 {
   color: white;
 }
 .header__sub {
-  font-size: clamp(0.3rem, 5vw, 1.1rem);
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  font-style: italic;
   color: limegreen;
-  margin: 1.5rem auto 0 auto;
+  margin-bottom: 0;
 }
 
 /* Robos Favourite Cities */
@@ -184,4 +185,13 @@ h6 {
     height: 72px;
     opacity: 0;
   }
+}
+
+.dancingRobos {
+  height: 50px;
+  border-bottom: 1px dotted black;
+}
+
+.dancingRobos > img {
+  height: 100%;
 }
