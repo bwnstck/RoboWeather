@@ -168,8 +168,8 @@ function App() {
   const header = createElement("div", {
     className: "headerContainer",
     children: [
-      headerTitle,
       clock,
+      headerTitle,
       profilePic,
       subHeading,
       dancingRobos,
