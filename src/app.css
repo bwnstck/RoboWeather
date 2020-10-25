@@ -32,6 +32,8 @@ h6 {
 .container {
   position: relative;
   width: 100vw;
+  max-width: 600px;
+  margin: auto;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -42,6 +44,7 @@ h6 {
 
 .headerContainer {
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -68,11 +71,16 @@ h6 {
   color: white;
 }
 
+.favCitiesBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .favCities,
 .favCitiesBox {
   display: flex;
   justify-content: space-evenly;
-  flex-flow: wrap;
   width: 60%;
   margin: 1rem auto;
 }
@@ -188,6 +196,7 @@ h6 {
 }
 
 .dancingRobos {
+  max-width: 60%;
   border-bottom: 1px dotted black;
 }
 

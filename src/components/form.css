@@ -60,7 +60,7 @@
 /* INPUT Field */
 .input {
   font-family: "Turret Road", cursive;
-  width: clamp(100px, 60vw, 500px);
+  width: clamp(100px, 20vw, 300px);
   text-align: center;
   font-size: clamp(1rem, 3vw, 1.5rem);
   background: black;
@@ -100,8 +100,11 @@
 }
 
 .profilePicture {
-  height: 100px;
+  height: 20vw;
+  max-height: 180px;
   border-radius: 50%;
+  border: 1px solid gold;
+  box-shadow: 0 0 8px 1px rgba(255, 217, 0, 0.5);
 }
 .profilePicture:active {
   filter: drop-shadow(0 0 7px gold);
