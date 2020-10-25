@@ -32,3 +32,18 @@ export function addRemoveLoading(loading) {
     output.append(loadingContainer);
   }
 }
+
+export function generateRandomSeed(length) {
+  let randomSeed = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    randomSeed += characters.charAt(
+      Math.floor(Math.random() * charactersLength)
+    );
+  }
+
+  console.log(randomSeed);
+  return randomSeed;
+}

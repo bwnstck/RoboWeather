@@ -1,5 +1,6 @@
 import "./footer.css";
 import { createElement } from "../utils/elements";
+import { generateRandomSeed } from "../utils/helpers";
 export const createFooter = () => {
   const humanCheckbox = createElement("input", {
     className: "humanCheckbox",
@@ -7,9 +8,10 @@ export const createFooter = () => {
     id: "humanCheck",
   });
 
+  const randomSeed = generateRandomSeed(7);
   const footerImg = createElement("img", {
     className: "footer__img",
-    src: "https://robohash.org/humansKillRobos.svg?set=set5",
+    src: `https://robohash.org/humansKillRobos_${randomSeed}.svg?set=set5`,
   });
   const humanLabel = createElement("label", {
     className: "humanLabel",
