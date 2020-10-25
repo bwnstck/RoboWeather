@@ -9,7 +9,7 @@
   border-radius: 10px;
   padding: 0 0.5rem;
   margin-left: 20px;
-  background: black;
+  background: rgba(11, 23, 11, 1);
   color: limegreen;
 }
 
@@ -21,7 +21,7 @@
   width: 0;
   height: 0;
   border: 3.125em solid transparent;
-  border-right-color: black;
+  border-right-color: rgba(11, 23, 11, 1);
   border-left: 0;
   border-bottom: 0;
   margin-top: -1.562em;
@@ -32,7 +32,7 @@
     top: 106%;
     left: 50%;
     border: 2.656em solid transparent;
-    border-top-color: black;
+    border-top-color: rgba(11, 23, 11, 1);
     margin-left: -1.656em;
     margin-bottom: -1.656em;
   }

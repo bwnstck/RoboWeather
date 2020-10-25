@@ -1,4 +1,6 @@
 import "./app.css";
+import "./components/tuesday/tuesday.min.css";
+
 import { createForm } from "./components/Form";
 import { createElement } from "./utils/elements";
 import { SearchWeather } from "./utils/api";
