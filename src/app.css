@@ -54,8 +54,7 @@ h6 {
 /* Robos Favourite Cities */
 .robosHeader {
   font-size: clamp(0.1rem, 4vw, 0.6rem);
-  margin-top: 1rem;
-  margin-bottom: 0;
+  margin: 0.5rem auto;
   color: white;
 }
 

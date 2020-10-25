@@ -8,6 +8,7 @@ import { showTime } from "./components/Watch";
 import { addRemoveLoading } from "./utils/helpers";
 import { createFavCity } from "./components/FavButtons";
 import { createFooter } from "./components/Footer";
+import { generateYourFavs } from "./components/YourFavs";
 
 function App() {
   let loading = false;
@@ -16,10 +17,6 @@ function App() {
   let favouriteCities = JSON.parse(
     localStorage.getItem("favoriteCities") || "[]"
   );
-  const favCitiesBox = createElement("div", {
-    className: "favCitiesBox",
-    // innerHTML: `${favouriteCities}`,
-  });
 
   const headerTitle = createElement("h1", {
     innerText: "Robo-Weather",
@@ -35,7 +32,12 @@ function App() {
     IntervId = setInterval(showTime, 1000);
   })();
 
+  const favCitiesBox = createElement("div", {
+    className: "favCitiesBox",
+  });
+
   (function createInitalFavs() {
+    generateYourFavs(favouriteCities, favCitiesBox);
     favouriteCities?.map((city) => {
       const newButton = createFavCity("⭐️ ", city, "", {
         onclick: async (event) => {
@@ -67,11 +69,6 @@ function App() {
     className: "outputContainer",
   });
 
-  const robosHeader = createElement("h6", {
-    className: "robosHeader",
-    innerText: "Robos Favourite Cities:",
-  });
-
   const form = createForm({
     onsubmit: async (event) => {
       event.preventDefault();
@@ -94,7 +91,7 @@ function App() {
 
   const header = createElement("div", {
     className: "headerContainer",
-    children: [headerTitle, clock, subHeading, form, robosHeader, favCitiesBox],
+    children: [headerTitle, clock, subHeading, form, favCitiesBox],
   });
 
   const footer = createFooter();
