@@ -2,9 +2,7 @@ import "./footer.css";
 import { createElement } from "../utils/elements";
 import { generateRandomSeed } from "../utils/helpers";
 
-export const createFooter = () => {
-  const randomSeed = generateRandomSeed(7);
-
+export const createFooter = (onclickProps) => {
   const humanCheckbox = createElement("input", {
     className: "humanCheckbox",
     type: "checkbox",
@@ -45,6 +43,7 @@ export const createFooter = () => {
   const footer = createElement("footer", {
     className: "footer",
     children: [humanContainer, humanShoutOut],
+    ...onclickProps,
   });
 
   return footer;

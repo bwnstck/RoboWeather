@@ -80,9 +80,36 @@ function App() {
   const dancingRobos = createElement("div", {
     className: "dancingRobos",
     children: [],
+    onclick: (event) => {
+      event.preventDefault;
+      buildRobot(1);
+      console.log("roboclick");
+    },
   });
 
-  (function createRobot(count = 4) {
+  let error = false;
+  let errorMessage = createElement("p", {
+    className: "errorText",
+    innerText: "🚀🚀🚀 you already killed all robos! 🦿🦾",
+  });
+  function destroyRobot(count = 1) {
+    if (dancingRobos.lastChild?.className === "dancingRobo") {
+      dancingRobos.removeChild(dancingRobos.lastChild);
+    } else {
+      if (error) {
+        return;
+      } else {
+        error = true;
+        dancingRobos.append(errorMessage);
+      }
+    }
+  }
+
+  function buildRobot(count = 4) {
+    if (dancingRobos.lastChild?.className === "errorText") {
+      dancingRobos.removeChild(dancingRobos.lastChild);
+      error = false;
+    }
     for (let i = 0; i < count; i++) {
       const dancingRobo = createElement("img", {
         className: "dancingRobo",
@@ -91,7 +118,9 @@ function App() {
       });
       dancingRobos.append(dancingRobo);
     }
-  })();
+  }
+
+  buildRobot();
 
   const output = createElement("div", {
     className: "outputContainer",
@@ -149,7 +178,9 @@ function App() {
     ],
   });
 
-  const footer = createFooter();
+  const footer = createFooter({
+    onclick: () => destroyRobot(),
+  });
 
   const container = createElement("div", {
     className: "container",
