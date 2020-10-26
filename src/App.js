@@ -93,11 +93,24 @@ function App() {
     }
   }
   let atomicBomb = false;
+
+  const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
   function buildRobot(count = 4) {
     if (dancingRobos.children.length > 20 && !atomicBomb) {
       console.log(atomicBomb);
+      const bombSrc = "https://media.giphy.com/media/XUFPGrX5Zis6Y/giphy.gif";
+      const explosion = createElement("img", {
+        className: "bombExplosion",
+        src: bombSrc,
+      });
+
       const BOOOMB = createAtomicBomb({
-        onclick: () => {
+        onclick: async (event) => {
+          event.stopPropagation();
+          removeAllChildNodes(dancingRobos);
+          dancingRobos.append(explosion);
+          await sleep(2200);
           removeAllChildNodes(dancingRobos);
           atomicBomb = false;
         },

@@ -5,3 +5,8 @@
   width: 5ch;
   font-size: 0.8rem;
 }
+
+img.bombExplosion {
+  width: 100%;
+  height: 100%;
+}
