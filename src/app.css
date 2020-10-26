@@ -196,7 +196,11 @@ h6 {
 }
 
 .dancingRobos {
+  width: 100%;
   border-bottom: 1px dotted black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .dancingRobos > img {

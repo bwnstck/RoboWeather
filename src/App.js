@@ -7,12 +7,17 @@ import { SearchWeather } from "./utils/api";
 import createWeatherOutput from "./components/WeatherOutput";
 import { GetRandomQuote } from "./utils/api";
 import { createClock } from "./components/Watch";
-import { addRemoveLoading, setNewProfilePicture } from "./utils/helpers";
+import {
+  addRemoveLoading,
+  removeAllChildNodes,
+  setNewProfilePicture,
+} from "./utils/helpers";
 import { createFavCity } from "./components/FavButtons";
 import { createFooter } from "./components/Footer";
 import { generateYourFavs } from "./components/YourFavs";
 
 import dancingRoboImg from "./assets/dancingRobo.gif";
+import { createAtomicBomb } from "./components/AtomicBomb";
 
 function App() {
   let loading = false;
@@ -87,8 +92,19 @@ function App() {
       }
     }
   }
-
+  let atomicBomb = false;
   function buildRobot(count = 4) {
+    if (dancingRobos.children.length > 20 && !atomicBomb) {
+      console.log(atomicBomb);
+      const BOOOMB = createAtomicBomb({
+        onclick: () => {
+          removeAllChildNodes(dancingRobos);
+          atomicBomb = false;
+        },
+      });
+      dancingRobos.append(BOOOMB);
+      atomicBomb = true;
+    }
     if (dancingRobos.lastChild?.className === "errorText") {
       dancingRobos.removeChild(dancingRobos.lastChild);
       error = false;
