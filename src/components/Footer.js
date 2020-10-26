@@ -32,17 +32,32 @@ export const createFooter = (onclickProps) => {
   });
   humanLabel.setAttribute("for", "humanCheck");
 
-  const humanContainer = createElement("div", {
-    className: "humanContainer",
-    children: [humanCheckbox, humanLabel],
-  });
   const humanShoutOut = createElement("div", {
     className: "humanShoutOut",
     innerText: "   …  Humans 4tw 👾",
   });
+  const human = createElement("div", {
+    className: "human",
+    children: [humanCheckbox, humanLabel],
+  });
+  const humanContainer = createElement("div", {
+    className: "humanContainer",
+    children: [human, humanShoutOut],
+  });
+
+  const credits = createElement("div", {
+    className: "credits",
+    innerHTML:
+      "made with 🚀 by Team <a href='https://github.com/divSchubser/'>divSchubser</a> ",
+  });
+
+  const placeholder = createElement("div", {
+    className: "placeholder",
+  });
+
   const footer = createElement("footer", {
     className: "footer",
-    children: [humanContainer, humanShoutOut],
+    children: [placeholder, humanContainer, credits],
     ...onclickProps,
   });
 

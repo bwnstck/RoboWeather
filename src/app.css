@@ -223,3 +223,11 @@ h6 {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+a {
+  color: gold;
+}
+
+a:hover {
+  text-shadow: 0 0 5px gold;
+}
