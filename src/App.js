@@ -6,7 +6,7 @@ import { createElement } from "./utils/elements";
 import { SearchWeather } from "./utils/api";
 import createWeatherOutput from "./components/WeatherOutput";
 import { GetRandomQuote } from "./utils/api";
-import { showTime } from "./components/Watch";
+import { createClock } from "./components/Watch";
 import { addRemoveLoading, setNewProfilePicture } from "./utils/helpers";
 import { createFavCity } from "./components/FavButtons";
 import { createFooter } from "./components/Footer";
@@ -16,7 +16,6 @@ import dancingRoboImg from "./assets/dancingRobo.gif";
 
 function App() {
   let loading = false;
-  let ampm = JSON.parse(localStorage.getItem("ampm") || false);
 
   let favouriteCities = JSON.parse(
     localStorage.getItem("favoriteCities") || `["Cologne"]`
@@ -26,22 +25,6 @@ function App() {
     innerText: "Robo-Weather",
     className: "header__title  ",
   });
-  const clock = createElement("div", {
-    className: "clock",
-    innerHTML: "",
-    onclick: (event) => {
-      event.preventDefault;
-      console.log("Click");
-      ampm = !ampm;
-      localStorage.setItem("ampm", JSON.stringify(ampm));
-    },
-  });
-  let IntervId = null;
-
-  function initalShowTime() {
-    showTime(clock, ampm);
-  }
-  (() => (IntervId = setInterval(initalShowTime, 1000)))();
 
   const favCitiesBox = createElement("div", {
     className: "favCitiesBox",
@@ -168,7 +151,7 @@ function App() {
   const header = createElement("div", {
     className: "headerContainer",
     children: [
-      clock,
+      createClock(),
       headerTitle,
       profilePic,
       subHeading,
